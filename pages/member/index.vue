@@ -7,13 +7,13 @@
         Back to home
       </button>
     </nuxt-link>
-    <h1>It's blog</h1>
+    <h1>It's a member</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Blog",
+  name: "Member",
 };
 </script>
 

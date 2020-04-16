@@ -1,75 +1,70 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">learn-nuxt</h1>
-      <h2 class="subtitle">my first tailwind app</h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
-        >
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-          >GitHub</a
-        >
+  <div>
+    <Navbar />
+    <section>
+      <div class="container">
+        <div class="pt-20 items-center justify-center flex-column">
+          <div class="md:flex items-center justify-center">
+            <p class="text-3xl text-gray-600 text-center">It's all about</p>
+            <img src="../assets/img/tailwind.png" alt="" class="w-64" />
+          </div>
+          <div>
+            <p class="text-center">
+              A utility-first CSS framework for
+              <strong class="text-green-600"
+                >rapidly building custom designs.</strong
+              >
+            </p>
+          </div>
+        </div>
       </div>
-      <nuxt-link to="/blog">
-        <button
-          class="py-3 px-8 bg-blue-500 rounded-lg text-white hover:bg-blue-400 transition duration-300 focus:outline-none block mx-auto mt-12"
-        >
-          Go to Profile
-        </button>
-      </nuxt-link>
+    </section>
+    <section>
+      <div class="container mt-10">
+        <h1 class="text-center text-4xl font-bold text-green-600">
+          Meet our member
+        </h1>
+        <p class="text-center">
+          Our member spread all over the world with variative background
+        </p>
+        <div class="md:flex md:flex-wrap items-center justify-center">
+          <MemberCard
+            v-for="(member, index) in members"
+            :key="index"
+            :firstName="member.first_name"
+            :lastName="member.last_name"
+            :img="member.avatar"
+            :email="member.email"
+          />
+        </div>
+      </div>
+      <!-- <p>{{ members }}</p> -->
+    </section>
+    <div class="py-4 bg-green-600 mt-4">
+      <p class="text-center text-gray-200">
+        mini example nuxt.js + tailwind.css
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-
+import MemberCard from "@/components/MemberCard";
+import Navbar from "@/components/Navbar";
 export default {
   components: {
-    Logo,
+    MemberCard,
+    Navbar,
+  },
+  fetch({ store, params }) {
+    store.dispatch("member/getMemberData");
+  },
+  computed: {
+    members() {
+      return this.$store.state.member.memberData.data.data;
+    },
   },
 };
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>
