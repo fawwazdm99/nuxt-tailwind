@@ -56,12 +56,12 @@ export default {
     MemberCard,
     Navbar,
   },
-  fetch({ store, params }) {
-    store.dispatch("member/getMemberData");
+  async fetch({ store, params }) {
+    await store.dispatch("member/getMemberData");
   },
   computed: {
     members() {
-      return this.$store.state.member.memberData.data.data;
+      return this.$store.state.member.memberData;
     },
   },
 };

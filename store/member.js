@@ -1,9 +1,9 @@
 export const state = () => ({
-  memberData: "",
+  memberData: [],
 });
 export const mutations = {
   addMemberData(state, data) {
-    state.memberData = data;
+    state.memberData = data.data.data;
   },
 };
 export const actions = {

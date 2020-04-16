@@ -21,10 +21,10 @@
 <script>
 export default {
   props: {
-    firstName: String,
-    lastName: String,
-    email: String,
-    img: String,
+    firstName: { type: String, default: "first_name" },
+    lastName: { type: String, default: "last_name" },
+    email: { type: String, default: "email" },
+    img: { type: String, default: "img" },
   },
 };
 </script>
