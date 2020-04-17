@@ -31,8 +31,8 @@
           <MemberCard
             v-for="(member, index) in members"
             :key="index"
-            :firstName="member.first_name"
-            :lastName="member.last_name"
+            :first-name="member.first_name"
+            :last-name="member.last_name"
             :img="member.avatar"
             :email="member.email"
           />

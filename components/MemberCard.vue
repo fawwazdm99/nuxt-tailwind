@@ -6,7 +6,7 @@
       <img
         :src="img"
         alt=""
-        class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto block"
+        class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto block shadow-md"
       />
       <h5 class="font-bold text-md mt-2 text-green-600">
         {{ firstName }} {{ lastName }}

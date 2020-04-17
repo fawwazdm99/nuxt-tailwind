@@ -1,4 +1,7 @@
 export default {
+  // router: {
+  //   base: "/nuxt/",
+  // },
   mode: "universal",
   /*
    ** Headers of the page
@@ -45,6 +48,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
   ],
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
