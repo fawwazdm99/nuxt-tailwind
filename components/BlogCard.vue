@@ -1,22 +1,44 @@
 <template>
   <div class="md:w-1/2 md:mx-auto mb-8">
-    <h3 class="font-bold text-green-600 text-lg">{{ blogTitle }}</h3>
-    <p class="text-gray-700">
+    <p v-if="!blogEditingTitle" class="text-gray-500">
+      double tap title to edit
+    </p>
+    <h3
+      v-if="!blogEditingTitle"
+      class="font-bold text-green-600 text-lg"
+      @dblclick="editBlogTitle(blogId)"
+    >
+      {{ blogTitle }}
+    </h3>
+    <input
+      v-else
+      type="text"
+      :value="blogTitle"
+      @blur="doneEditBlogTitle(blogId)"
+      @change="updateBlogTitle"
+    />
+    <p
+      v-if="!blogEditingBody"
+      class="text-gray-700"
+      @dblclick="editBlogBody(blogId)"
+    >
       {{ blogBody }}
     </p>
-    <p class="text-gray-500 mt-6">Commentar</p>
+    <textarea
+      v-else
+      :value="blogBody"
+      @blur="doneEditBlogBody(blogId)"
+    ></textarea>
+    <p class="text-gray-500 mt-6">Comment</p>
     <div class="mt-4 mb-4">
       <form @submit.prevent="addComment(blogId)">
         <textarea
           v-model="commentModel"
           placeholder="add some comment..."
           type="textarea"
-          class="w-full h-20 border-2 border-gray-200 resize-none focus:outline-none focus:border-gray-400"
+          class="w-full h-20 border-2 p-2 border-gray-200 resize-none focus:outline-none focus:border-gray-400"
         />
-        <button
-          type="submit"
-          class="bg-green-600 text-white py-1 px-4 rounded-lg block ml-auto"
-        >
+        <button type="submit" class="submit-btn">
           Submit
         </button>
       </form>
@@ -66,6 +88,14 @@ export default {
       type: Array,
       default: () => [],
     },
+    blogEditingTitle: {
+      type: Boolean,
+      default: false,
+    },
+    blogEditingBody: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -78,7 +108,7 @@ export default {
       this.$store.dispatch("blog/deleteComment", { index, blogId });
     },
     addComment(blogId) {
-      const id = "addComment" + blogId;
+      const id = "addComment" + blogId + Math.random() * 1000;
       const name = "guest";
       const email = "guest@gmail.com";
       const body = this.commentModel;
@@ -90,6 +120,25 @@ export default {
         body,
       });
       this.commentModel = "";
+    },
+    editBlogTitle(blogId) {
+      this.$store.commit("blog/editBlogTitle", blogId);
+    },
+    doneEditBlogTitle(blogId) {
+      this.$store.commit("blog/doneEditBlogTitle", blogId);
+    },
+    editBlogBody(blogId) {
+      this.$store.commit("blog/editBlogBody", blogId);
+    },
+    doneEditBlogBody(blogId) {
+      this.$store.commit("blog/doneEditBlogBody", blogId);
+    },
+    updateBlogTitle(event) {
+      const newTitle = event.target.value;
+      console.log(newTitle);
+      const blogId = this.blogId;
+      console.log(blogId);
+      this.$store.commit("blog/updateBlogTitle", { blogId, newTitle });
     },
   },
 };

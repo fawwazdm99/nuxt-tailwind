@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex py-3 px-6 bg-white shadow-lg justify-between fixed w-full z-50"
+    class="flex py-3 px-6 bg-white shadow-lg justify-between fixed w-full z-30"
   >
     <nuxt-link to="/">
       <img src="../assets/img/logo.png" alt="" class="w-8" />
