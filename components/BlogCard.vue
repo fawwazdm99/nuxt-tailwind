@@ -134,11 +134,9 @@ export default {
       this.$store.commit("blog/doneEditBlogBody", blogId);
     },
     updateBlogTitle(event) {
-      const newTitle = event.target.value;
-      console.log(newTitle);
+      const title = event.target.value;
       const blogId = this.blogId;
-      console.log(blogId);
-      this.$store.commit("blog/updateBlogTitle", { blogId, newTitle });
+      this.$store.commit("blog/updateBlogTitle", { blogId, title });
     },
   },
 };

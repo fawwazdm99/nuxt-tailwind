@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar />
+    <navbar />
     <section>
       <div class="container">
         <div class="pt-20 items-center justify-center flex-column">
@@ -27,16 +27,21 @@
         <p class="text-center">
           Our member spread all over the world with variative background
         </p>
-        <div class="md:flex md:flex-wrap items-center justify-center">
-          <MemberCard
+        <div
+          v-if="!members.error"
+          class="md:flex md:flex-wrap items-center justify-center"
+        >
+          <member-card
             v-for="(member, index) in members"
             :key="index"
             :first-name="member.first_name"
             :last-name="member.last_name"
             :img="member.avatar"
             :email="member.email"
+            :member-id="member.id.toString()"
           />
         </div>
+        <error-request v-else :message="members.message" />
       </div>
       <!-- <p>{{ members }}</p> -->
     </section>
@@ -49,12 +54,14 @@
 </template>
 
 <script>
-import MemberCard from "@/components/MemberCard";
-import Navbar from "@/components/Navbar";
+import memberCard from "@/components/MemberCard";
+import navbar from "@/components/Navbar";
+import errorRequest from "@/components/ErrorRequest";
 export default {
   components: {
-    MemberCard,
-    Navbar,
+    memberCard,
+    navbar,
+    errorRequest,
   },
   async fetch({ store, params }) {
     await store.dispatch("member/getMemberData");
