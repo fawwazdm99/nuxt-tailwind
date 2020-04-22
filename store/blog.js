@@ -1,4 +1,6 @@
+// import Vue from "vue";
 import { getDataIndex } from "@/helper/";
+
 export const state = () => ({
   blogData: [],
 });
@@ -11,6 +13,7 @@ export const mutations = {
   },
   updateBlogTitle(state, { blogId, title }) {
     const postIndex = getDataIndex(state.blogData, blogId);
+    // Vue.set(state.blogData, postIndex, title);
     state.blogData[postIndex].title = title;
   },
   updateBlogBody(state, { blogId, body }) {
@@ -23,6 +26,7 @@ export const mutations = {
   },
   doneEditBlogTitle(state, blogId) {
     const postIndex = getDataIndex(state.blogData, blogId);
+    // Vue.set(state.blogData, postIndex, false);
     state.blogData[postIndex].editingTitle = false;
   },
   editBlogBody(state, blogId) {

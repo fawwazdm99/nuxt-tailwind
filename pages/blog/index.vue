@@ -8,7 +8,7 @@
           :blog-title="blog.title"
           :blog-body="blog.body"
           :blog-comments="blog.comments"
-          :blog-id="blog.id.toString()"
+          :blog-id="blog.id"
           :blog-editing-title="blog.editingTitle"
           :blog-editing-body="blog.editingBody"
         />

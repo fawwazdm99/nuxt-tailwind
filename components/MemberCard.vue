@@ -13,7 +13,7 @@
           {{ firstName }} {{ lastName }}
         </h5>
         <div class="flex items-center justify-center">
-          <p class="text-sm text-gray-600">{{ email }}</p>
+          <p id="email" class="text-sm text-gray-600">{{ email }}</p>
         </div>
       </div>
     </nuxt-link>
