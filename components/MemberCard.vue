@@ -5,15 +5,16 @@
     <nuxt-link :to="'member/' + memberId">
       <div class="container">
         <img
+          id="member-image"
           :src="img"
-          alt=""
+          alt
           class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto block shadow-md"
         />
-        <h5 class="font-bold text-md mt-2 text-green-600">
+        <h5 id="member-name" class="font-bold text-md mt-2 text-green-600">
           {{ firstName }} {{ lastName }}
         </h5>
         <div class="flex items-center justify-center">
-          <p id="email" class="text-sm text-gray-600">{{ email }}</p>
+          <p id="member-email" class="text-sm text-gray-600">{{ email }}</p>
         </div>
       </div>
     </nuxt-link>

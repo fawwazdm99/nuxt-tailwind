@@ -5,6 +5,7 @@
     </p>
     <h3
       v-if="!blogEditingTitle"
+      id="blog-title"
       class="font-bold text-green-600 text-lg"
       @dblclick="editBlogTitle(blogId)"
     >
@@ -19,6 +20,7 @@
     />
     <p
       v-if="!blogEditingBody"
+      id="blog-body"
       class="text-gray-700"
       @dblclick="editBlogBody(blogId)"
     >
@@ -38,9 +40,7 @@
           type="textarea"
           class="w-full h-20 border-2 p-2 border-gray-200 resize-none focus:outline-none focus:border-gray-400"
         />
-        <button type="submit" class="submit-btn">
-          Submit
-        </button>
+        <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
     <div
@@ -57,14 +57,12 @@
         </p>
         <img
           src="../assets/svg/icon-x.svg"
-          alt=""
+          alt
           @click="deleteComment(index, blogId)"
         />
       </div>
 
-      <p class="text-gray-700 text-sm">
-        {{ comment.body }}
-      </p>
+      <p class="text-gray-700 text-sm">{{ comment.body }}</p>
     </div>
   </div>
 </template>

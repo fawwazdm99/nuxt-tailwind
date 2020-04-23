@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogCard.vue must renders body and title props in blog card 1`] = `
+<div
+  class="md:w-1/2 md:mx-auto mb-8"
+>
+  <p
+    class="text-gray-500"
+  >
+    
+    double tap title to edit
+  
+  </p>
+   
+  <h3
+    class="font-bold text-green-600 text-lg"
+    id="blog-title"
+  >
+    
+    some title of the blog
+  
+  </h3>
+   
+  <p
+    class="text-gray-700"
+    id="blog-body"
+  >
+    
+    Some content of the blog
+  
+  </p>
+   
+  <p
+    class="text-gray-500 mt-6"
+  >
+    Comment
+  </p>
+   
+  <div
+    class="mt-4 mb-4"
+  >
+    <form>
+      <textarea
+        class="w-full h-20 border-2 p-2 border-gray-200 resize-none focus:outline-none focus:border-gray-400"
+        placeholder="add some comment..."
+        type="textarea"
+      />
+       
+      <button
+        class="submit-btn"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+   
+</div>
+`;
+
+exports[`ErrorRequest.vue Must render message props in error request 1`] = `
+<div
+  class="container pt-8 pb-8"
+>
+  <div
+    class="flex-column items-center justify-center"
+  >
+    <img
+      alt=""
+      class="block mx-auto w-1/2"
+      src="../assets/svg/error-request.svg"
+    />
+     
+    <p
+      class="my-3 text-center"
+      id="error-message"
+    >
+      Unknow error unfortunately
+    </p>
+     
+    <nuxt-link
+      to="/"
+    >
+      <button
+        class="bg-green-600 text-white rounded-lg py-2 px-4 block mx-auto"
+      >
+        
+        Back to home
+      
+      </button>
+    </nuxt-link>
+  </div>
+</div>
+`;
+
+exports[`MemberCard.vue should render as its props 1`] = `
+<div
+  class="rounded-lg bg-white shadow-md text-center py-4 md:m-4 md:w-1/5 my-4 w-full"
+>
+  <nuxt-link
+    to="member/1"
+  >
+    <div
+      class="container"
+    >
+      <img
+        alt=""
+        class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto block shadow-md"
+        id="member-image"
+        src="https://cdn.animenewsnetwork.com/thumbnails/max650x650/cms/news.3/150316/another-world.jpg"
+      />
+       
+      <h5
+        class="font-bold text-md mt-2 text-green-600"
+        id="member-name"
+      >
+        
+        Fawwaz.snapshot Daffa.snapshot
+      
+      </h5>
+       
+      <div
+        class="flex items-center justify-center"
+      >
+        <p
+          class="text-sm text-gray-600"
+          id="member-email"
+        >
+          fdm99@yahoo.com.snapshot
+        </p>
+      </div>
+    </div>
+  </nuxt-link>
+</div>
+`;

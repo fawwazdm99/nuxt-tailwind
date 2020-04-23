@@ -6,7 +6,7 @@
         alt=""
         class="block mx-auto w-1/2"
       />
-      <p class="my-3 text-center">{{ message }}</p>
+      <p id="error-message" class="my-3 text-center">{{ message }}</p>
       <nuxt-link to="/">
         <button
           class="bg-green-600 text-white rounded-lg py-2 px-4 block mx-auto"
